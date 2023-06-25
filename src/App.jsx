@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-import { Container, Divider, Heading, useToast } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  Container,
+  Divider,
+  Heading,
+  useToast,
+} from "@chakra-ui/react";
 import FlashCard from "./compenents/FlashCardCreator";
 import IdComp from "./compenents/IdInput";
 import MultiFlashCardCreator from "./compenents/MulitFlashCardCreator";
@@ -77,30 +83,32 @@ function App() {
   };
 
   return (
-    <Container>
-      <Heading
-        bgGradient={"linear(to-l, #7928CA, #FF0080)"}
-        bgClip="text"
-        textAlign={"center"}
-      >
-        Wooflash Tools
-      </Heading>
-      <IdComp onChangeId={handleChangeID} />
-      <Divider my={10}></Divider>
-      <FlashCard
-        onChangeRecto={handleChangeRecto}
-        onChangeVerso={handleChangeVerso}
-        onClick={SendMessage}
-        isLoading={lock}
-      />
+    <ChakraProvider>
+      <Container>
+        <Heading
+          bgGradient={"linear(to-l, #7928CA, #FF0080)"}
+          bgClip="text"
+          textAlign={"center"}
+        >
+          Wooflash Tools
+        </Heading>
+        <IdComp onChangeId={handleChangeID} />
+        <Divider my={10}></Divider>
+        <FlashCard
+          onChangeRecto={handleChangeRecto}
+          onChangeVerso={handleChangeVerso}
+          onClick={SendMessage}
+          isLoading={lock}
+        />
 
-      <Divider my={10} />
-      <MultiFlashCardCreator
-        onChangeMultiRectoVerso={handleBigMessageChange}
-        onClick={CutMessage}
-        isLoading={lock}
-      />
-    </Container>
+        <Divider my={10} />
+        <MultiFlashCardCreator
+          onChangeMultiRectoVerso={handleBigMessageChange}
+          onClick={CutMessage}
+          isLoading={lock}
+        />
+      </Container>
+    </ChakraProvider>
   );
 }
 
