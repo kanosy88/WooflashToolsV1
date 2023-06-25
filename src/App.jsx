@@ -1,18 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import {
-  Button,
-  Container,
-  Divider,
-  HStack,
-  Heading,
-  Input,
-  Text,
-  Textarea,
-  useToast,
-} from "@chakra-ui/react";
+import { Container, Divider, Heading, useToast } from "@chakra-ui/react";
 import FlashCard from "./compenents/FlashCardCreator";
 import IdComp from "./compenents/IdInput";
 import MultiFlashCardCreator from "./compenents/MulitFlashCardCreator";
