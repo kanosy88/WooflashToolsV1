@@ -30,7 +30,7 @@ export default function sendRequest(
     body: JSON.stringify({
       operationName: "QuestionCreate",
       variables: {
-        courseId: "1cdc39c4-8e4b-412a-9258-16a6eac508e7",
+        courseId: courseId,
         chapterId: null,
         type: "Flashcard",
         tags: [],
@@ -48,5 +48,5 @@ export default function sendRequest(
     }),
   });
 
-  get.then((message) => console.log(message.status));
+  get.then((message) => console.log(message));
 }
