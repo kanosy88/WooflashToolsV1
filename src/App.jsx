@@ -6,6 +6,8 @@ import {
   Divider,
   Heading,
   useToast,
+  Link,
+  Tooltip,
 } from "@chakra-ui/react";
 import FlashCard from "./compenents/FlashCardCreator";
 import IdComp from "./compenents/IdInput";
@@ -20,6 +22,12 @@ function App() {
   const [userAuth, setUserAuth] = useState("");
   const [bigMessage, setBigMessage] = useState("Bonsoir:Bonjour");
   const [lock, setLock] = useState(false);
+  const [isHelpOpen, setHelpState] = useState(false);
+
+  const toggleHelpSlide = () => {
+    setHelpState(!isHelpOpen);
+    console.log(isHelpOpen);
+  };
 
   const handleChangeRecto = (event) => {
     setMessageRecto(event.target.value);
@@ -90,18 +98,21 @@ function App() {
   return (
     <ChakraProvider>
       <Container>
-        <Heading
-          bgGradient={"linear(to-l, #7928CA, #FF0080)"}
-          bgClip="text"
-          textAlign={"center"}
-        >
-          Wooflash Tools
-        </Heading>
+        <Tooltip label="Fait par kanosy" fontSize="md">
+          <Heading
+            bgGradient={"linear(to-l, #7928CA, #FF0080)"}
+            bgClip="text"
+            textAlign={"center"}
+          >
+            Wooflash Tools
+          </Heading>
+        </Tooltip>
+
         <IdComp
           onChangeId={handleChangeID}
           onChangeKey={handleChangeUserAuth}
         />
-        <Divider my={10}></Divider>
+        <Divider my={10} boxShadow=" 0px 0px 36px 8px #7928CA"></Divider>
         <FlashCard
           onChangeRecto={handleChangeRecto}
           onChangeVerso={handleChangeVerso}
@@ -109,12 +120,24 @@ function App() {
           isLoading={lock}
         />
 
-        <Divider my={10} />
+        <Divider my={10} boxShadow="  0px 0px 36px 8px #7928CA" />
         <MultiFlashCardCreator
           onChangeMultiRectoVerso={handleBigMessageChange}
           onClick={CutMessage}
           isLoading={lock}
         />
+        <Divider my={10} boxShadow="  0px 0px 36px 8px #7928CA" />
+        <Link
+          href="https://github.com/kanosy88/WooflashToolsV1#how-to-use"
+          isExternal
+          my={10}
+          textAlign={"center"}
+          bg={"#97FFDA"}
+          bgClip="text"
+          textShadow={"0px 0px 36px 8px rgba(82, 255, 0, 0.25)"}
+        >
+          Comment ça marche?
+        </Link>
       </Container>
     </ChakraProvider>
   );
