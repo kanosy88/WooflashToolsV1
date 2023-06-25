@@ -17,6 +17,7 @@ function App() {
   const [messageRecto, setMessageRecto] = useState("Bonsoir");
   const [messageVerso, setMessageVerso] = useState("Bonjour");
   const [courseID, setCourseID] = useState("b2d712be-bb78-44cd-9b14");
+  const [userAuth, setUserAuth] = useState("");
   const [bigMessage, setBigMessage] = useState("Bonsoir:Bonjour");
   const [lock, setLock] = useState(false);
 
@@ -30,6 +31,10 @@ function App() {
 
   const handleChangeID = (event) => {
     setCourseID(event.target.value);
+  };
+
+  const handleChangeUserAuth = (event) => {
+    setUserAuth(event.target.value);
   };
 
   const handleBigMessageChange = (event) => {
@@ -52,7 +57,7 @@ function App() {
 
   const SendMessage = () => {
     setLock(true);
-    sendRequest(messageRecto, messageVerso, courseID);
+    sendRequest(messageRecto, messageVerso, courseID, userAuth);
 
     SuccesToast(
       "Votre question à été créer avec succès",
@@ -92,7 +97,10 @@ function App() {
         >
           Wooflash Tools
         </Heading>
-        <IdComp onChangeId={handleChangeID} />
+        <IdComp
+          onChangeId={handleChangeID}
+          onChangeKey={handleChangeUserAuth}
+        />
         <Divider my={10}></Divider>
         <FlashCard
           onChangeRecto={handleChangeRecto}

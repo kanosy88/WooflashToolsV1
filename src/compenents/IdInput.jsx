@@ -1,10 +1,16 @@
-import { HStack, Input, Heading } from "@chakra-ui/react";
+import { HStack, Input, Heading, Stack } from "@chakra-ui/react";
 
-export default function IdComp({ onChangeId }) {
+export default function IdComp({ onChangeId, onChangeKey }) {
   return (
-    <HStack>
-      <Heading size={"md"}>ID</Heading>
-      <Input></Input>
-    </HStack>
+    <Stack>
+      <HStack>
+        <Heading size={"md"}>CourseID</Heading>
+        <Input onChange={onChangeId}></Input>
+      </HStack>
+      <HStack>
+        <Heading size={"md"}>AuthKey</Heading>
+        <Input onChange={onChangeKey}></Input>
+      </HStack>
+    </Stack>
   );
 }

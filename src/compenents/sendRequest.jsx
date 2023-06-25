@@ -1,4 +1,9 @@
-export default function sendRequest(RectoMessage, VersoMessage, courseId) {
+export default function sendRequest(
+  RectoMessage,
+  VersoMessage,
+  courseId,
+  userAuth
+) {
   console.log(RectoMessage, VersoMessage, courseId);
 
   let get = fetch("https://api.wooflash.com/graphql", {
@@ -7,8 +12,7 @@ export default function sendRequest(RectoMessage, VersoMessage, courseId) {
       authority: "api.wooflash.com",
       accept: "*/*",
       "accept-language": "fr-FR,fr;q=0.8",
-      authorization:
-        "Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiJhNzBlOTBhMy1mMjFmLTRlN2UtYjdlZC1iZmUyNjkyNTZkZjAiLCJhY2Nlc3NUb2tlbiI6IjA2ZmRhMmQ4M2NjZGMyNDNmMTU1OGI5ODc3YWQ5MzNjMDI5NGE4ODkyN2FhZTc3ZTkyNWUyNTA4ZjkzOTkxYjgiLCJhY2Nlc3NSaWdodHMiOltdLCJpYXQiOjE2ODY0MzU0ODgsImV4cCI6MTY5MTYxOTQ4OCwiYXVkIjoid29vZmxhc2giLCJpc3MiOiJAd29vZmxhc2gvYXV0aCIsInN1YiI6Indvb2ZsYXNoIn0.RScZ2qpGfBL8O8S1cAQDHVhbrHaIbI4kWIXlLKHfVpC6Kjr-pI2Uu-wEh_L4Pz7uBw3A02W7KN-xqUsmVskO6NLhBHMs967RajAg9AZMB4owbSbWbrhdzGy2hXIVI8ixu566mE5rA-OWOrFIxBoP_VdcOPoNNRd_BmuH4LE2NhcV2tGy6XRGM-Ew1oDE75qlan7a4i2UXfu2CIsIIvy5lSNjeELNXKUmaNGWavrN_oak6eEPoTDQwVizYO0o3l_YcmGqT4qavP1gYfEVUWxtmE5ZDc-o3VwA-SY1KYz56c3viswb3sj8qo4rwniB3nVtxFNRPUCacgpsvvn16vptHw",
+      authorization: "Bearer " + userAuth,
       "content-type": "application/json",
       origin: "https://app.wooflash.com",
       referer: "https://app.wooflash.com/",
