@@ -83,7 +83,7 @@ function App() {
       let parts = line.trim().split(":");
       let recto = parts[0];
       let verso = parts[1];
-      sendRequest(recto, verso, courseID);
+      sendRequest(recto, verso, courseID, userAuth);
     });
 
     SuccesToast(
