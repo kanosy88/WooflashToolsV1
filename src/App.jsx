@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react';
+import './App.css';
 import {
   ChakraProvider,
   Container,
@@ -8,19 +8,19 @@ import {
   useToast,
   Link,
   Tooltip,
-} from "@chakra-ui/react";
-import FlashCard from "./compenents/FlashCardCreator";
-import IdComp from "./compenents/IdInput";
-import MultiFlashCardCreator from "./compenents/MulitFlashCardCreator";
-import sendRequest from "./compenents/sendRequest";
+} from '@chakra-ui/react';
+import FlashCard from './compenents/FlashCardCreator';
+import IdComp from './compenents/IdInput';
+import MultiFlashCardCreator from './compenents/MulitFlashCardCreator';
+import sendRequest from './compenents/sendRequest';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [messageRecto, setMessageRecto] = useState("Bonsoir");
-  const [messageVerso, setMessageVerso] = useState("Bonjour");
-  const [courseID, setCourseID] = useState("b2d712be-bb78-44cd-9b14");
-  const [userAuth, setUserAuth] = useState("");
-  const [bigMessage, setBigMessage] = useState("Bonsoir:Bonjour");
+  const [messageRecto, setMessageRecto] = useState('Bonsoir');
+  const [messageVerso, setMessageVerso] = useState('Bonjour');
+  const [courseID, setCourseID] = useState('b2d712be-bb78-44cd-9b14');
+  const [userAuth, setUserAuth] = useState('');
+  const [bigMessage, setBigMessage] = useState('Bonsoir:Bonjour');
   const [lock, setLock] = useState(false);
   const [isHelpOpen, setHelpState] = useState(false);
 
@@ -57,7 +57,7 @@ function App() {
     toast({
       title: title,
       description: description,
-      status: "success",
+      status: 'success',
       duration: coolDownDuration,
       isClosable: false,
     });
@@ -68,8 +68,8 @@ function App() {
     sendRequest(messageRecto, messageVerso, courseID, userAuth);
 
     SuccesToast(
-      "Votre question à été créer avec succès",
-      "Redémarer la page Wooflash pour voir les modification"
+      'Votre question à été créer avec succès',
+      'Redémarer la page Wooflash pour voir les modification'
     );
     setTimeout(() => {
       setLock(false);
@@ -78,17 +78,17 @@ function App() {
 
   const CutMessage = () => {
     setLock(true);
-    let lines = bigMessage.split("\n");
+    let lines = bigMessage.split('\n');
     lines.map((line) => {
-      let parts = line.trim().split(":");
+      let parts = line.trim().split(':');
       let recto = parts[0];
       let verso = parts[1];
       sendRequest(recto, verso, courseID, userAuth);
     });
 
     SuccesToast(
-      "Vos question on été envoyer avec succès",
-      "Redémarer la page Wooflash pour voir les modification"
+      'Vos question on été envoyer avec succès',
+      'Redémarer la page Wooflash pour voir les modification'
     );
     setTimeout(() => {
       setLock(false);
@@ -100,9 +100,9 @@ function App() {
       <Container>
         <Tooltip label="Fait par kanosy" fontSize="md">
           <Heading
-            bgGradient={"linear(to-l, #7928CA, #FF0080)"}
+            bgGradient={'linear(to-l, #7928CA, #FF0080)'}
             bgClip="text"
-            textAlign={"center"}
+            textAlign={'center'}
           >
             Wooflash Tools
           </Heading>
@@ -131,10 +131,10 @@ function App() {
           href="https://github.com/kanosy88/WooflashToolsV1#how-to-use"
           isExternal
           my={10}
-          textAlign={"center"}
-          bg={"#97FFDA"}
+          textAlign={'center'}
+          bg={'#97FFDA'}
           bgClip="text"
-          textShadow={"0px 0px 36px 8px rgba(82, 255, 0, 0.25)"}
+          textShadow={'0px 0px 36px 8px rgba(82, 255, 0, 0.25)'}
         >
           Comment ça marche?
         </Link>
